@@ -1,0 +1,335 @@
+@import './theme.css';
+
+:root {
+  --bg-soft: #fbfbfc;
+  --text-main: #1a1a1a;
+  --text-sub: #737373;
+  --accent: #000000; /* Pure black accent is very modern */
+  --border-subtle: #eeeeee;
+  --sidebar-w: 240px;
+}
+
+.fp-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-main);
+}
+
+/* --- Clean Sidebar with Sticky Profile --- */
+.fp-sidebar {
+  width: var(--sidebar-w);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px;
+  background: var(--bg-soft);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden; /* prevent inner scroll */
+}
+
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+  padding-right: 4px; /* adjust for scrollbar */
+}
+
+/* Keeps the Partner Profile at bottom */
+.sidebar-profile {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* --- Re-imagined Brand Logo Section --- */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 48px; /* Increased breathing room */
+  padding-left: 4px;   /* Slight offset for visual balance */
+}
+
+.brand-dot {
+  width: 14px;
+  height: 14px;
+  background: var(--accent); /* Pure black as per your theme */
+  border-radius: 4px;       /* Modern squircle shape */
+  transform: rotate(-15deg); /* Dynamic tilt for a unique look */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Optional: Small highlight on the dot for depth */
+.brand-dot::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 1px;
+}
+
+.brand-name {
+  font-weight: 800; /* Extra bold for authority */
+  letter-spacing: -0.8px; /* Tight tracking for modern "tech" look */
+  font-size: 1.25rem;
+  color: var(--text-main);
+  text-transform: capitalize;
+  line-height: 1;
+}
+
+/* --- Mobile Alignment Tweaks --- */
+@media (max-width: 900px) {
+  .mobile-top-bar .sidebar-header {
+    margin-bottom: 0; /* Align perfectly in the top bar */
+    gap: 10px;
+  }
+  
+  .mobile-top-bar .brand-name {
+    font-size: 1.15rem;
+  }
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-sub);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  color: var(--text-main);
+  background: #f0f0f0;
+}
+
+.nav-btn.active {
+  background: white;
+  color: var(--accent);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border: 1px solid var(--border-subtle);
+}
+
+/* --- Main Viewport --- */
+.fp-viewport {
+  flex: 1;
+  padding: 48px 64px;
+  overflow-y: auto;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.header-meta h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+.breadcrumb {
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  margin-top: 4px;
+  text-transform: capitalize;
+}
+
+/* --- Integrated Stats --- */
+.header-stats {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.h-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.h-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-sub);
+  font-weight: 600;
+}
+
+.h-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.h-divider {
+  width: 1px;
+  height: 30px;
+  background: var(--border-subtle);
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg,#f3f4f6,#e5e7eb);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #111827;
+  box-shadow: 0 6px 18px rgba(12,12,12,0.06);
+}
+
+.p-name {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.p-status {
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  margin: 0;
+  opacity: 0.9;
+}
+
+.sidebar-profile:hover .p-status { opacity: 1; }
+
+.sidebar-profile { gap: 14px; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .fp-viewport { padding: 32px; }
+  .header-stats { display: none; }
+}
+
+/* Logout Button */
+.fp-logout-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 12px;
+  background: #dc2626;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.fp-logout-btn:hover {
+  background: #b91c1c;
+}
+
+/* ... Keep all your existing styles above ... */
+
+.mobile-top-bar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: white;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0 20px;
+  z-index: 1100;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--accent);
+}
+
+/* Responsive Overrides */
+@media (max-width: 900px) {
+  .fp-container {
+    flex-direction: column;
+  }
+
+  .mobile-top-bar {
+    display: flex;
+  }
+
+  .fp-sidebar {
+    position: fixed;
+    left: -100%; /* Hidden by default */
+    top: 60px;
+    width: 280px;
+    height: calc(100vh - 60px);
+    transition: 0.3s ease-in-out;
+    z-index: 1050;
+    box-shadow: 10px 0 30px rgba(0,0,0,0.05);
+  }
+
+  .fp-sidebar.open {
+    left: 0;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .fp-viewport {
+    padding: 80px 20px 20px 20px; /* Space for mobile bar */
+  }
+
+  .content-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .header-stats {
+    width: 100%;
+    justify-content: space-between;
+    background: var(--bg-soft);
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .header-meta h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-stats {
+    gap: 10px;
+  }
+  
+  .h-value {
+    font-size: 1rem;
+  }
+  
+  .h-label {
+    font-size: 0.65rem;
+  }
+}

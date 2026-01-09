@@ -1,0 +1,281 @@
+@import './theme.css';
+
+/* Layout container */
+.profile-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* Header block */
+.profile-header {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.profile-meta {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: flex-start;
+  gap: var(--space-8);
+}
+
+.profile-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.profile-info { 
+  display: flex; 
+  flex-direction: column;
+  gap: var(--space-2); 
+}
+
+/* Business Name */
+.profile-business { 
+  font-size: 1.75rem; 
+  font-weight: 800; 
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+/* Address/Sub-text */
+.profile-address { 
+  font-size: 1rem; 
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Pills */
+.profile-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-full);
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-alt);
+  color: var(--color-text-secondary);
+  width: fit-content;
+  transition: all 0.2s ease;
+}
+
+.profile-pill:hover {
+  background: var(--color-border);
+  color: var(--color-text);
+}
+
+/* 🔥 UPDATED STATS SECTION */
+.profile-stats {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr; /* Added space for a 1px vertical line */
+  align-items: center;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-8);
+  margin-top: var(--space-2);
+}
+
+.profile-stat {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Increased gap slightly for breathing room */
+}
+
+/* Vertical Divider between stats */
+.stat-divider {
+  height: 50px;
+  width: 1px;
+  background-color: var(--color-border);
+}
+
+.profile-stat-label {
+  font-size: 0.75rem; /* Slightly smaller to match screenshot */
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  line-height: 1.2;
+}
+
+.profile-stat-value {
+  font-size: 2.5rem; /* Larger, bold values as seen in screenshot */
+  font-weight: 900;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+/* Rest of the styles remain untouched */
+.profile-sep {
+  height: 1px;
+  border: none;
+  background: linear-gradient(to right, transparent, var(--color-border), transparent);
+  margin: var(--space-2) 0;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.profile-grid-item { 
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  aspect-ratio: 3 / 4; 
+  transition: transform 0.3s ease;
+}
+
+.profile-grid-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.profile-grid-video {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  background: var(--color-surface-alt);
+  color: var(--color-text-secondary);
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.profile-name-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.verified-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0070f3;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.verified-badge svg {
+  width: 14px;
+  height: 14px;
+}
+
+.profile-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 4px 0;
+}
+
+.stars {
+  display: flex;
+  color: #ffb400;
+  font-size: 1.1rem;
+}
+
+.star.half {
+  position: relative;
+  color: var(--color-border);
+}
+
+.star.half::after {
+  content: '★';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  overflow: hidden;
+  color: #ffb400;
+}
+
+.rating-value {
+  font-weight: 700;
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+.rating-count {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 420px) {
+  .profile-header { 
+    padding: var(--space-5); 
+  }
+  
+  .profile-meta { 
+    grid-template-columns: 1fr; 
+    justify-items: center;
+    text-align: center;
+  }
+  
+  .profile-info { 
+    align-items: center; 
+  }
+  
+  .profile-avatar { 
+    width: 90px; 
+    height: 90px;  
+  }
+
+  /* 🔥 Keep stats aligned in one row on small screens */
+  .profile-stats { 
+    display: grid;
+    /* Forces 3 columns: left stat, the thin line, and right stat */
+    grid-template-columns: 1fr 1px 1fr; 
+    gap: 0; /* Remove gap to keep the divider centered */
+    align-items: center;
+    width: 100%;
+  }
+
+  .profile-stat-value { 
+    font-size: 1.8rem; /* Slightly smaller to fit narrow screens like 335px */
+    font-weight: 900;
+  }
+
+  .profile-stat-label {
+    font-size: 0.65rem;
+    white-space: nowrap; /* Prevents text from breaking into two lines */
+  }
+
+  .stat-divider {
+    height: 35px; /* Shorter line for mobile view */
+  }
+}
+
+@media (max-width: 420px) {
+  .profile-header { padding: var(--space-5); }
+  .profile-meta { 
+    grid-template-columns: 1fr; 
+    justify-items: center;
+    text-align: center;
+  }
+  .profile-info { align-items: center; }
+  .profile-avatar { width: 90px; height: 90px;  }
+  /* On mobile, stack them or keep line shorter */
+  .profile-stats { grid-template-columns: 1fr 1px 1fr; gap: var(--space-2); }
+  .profile-stat-value { font-size: 2rem; }
+}

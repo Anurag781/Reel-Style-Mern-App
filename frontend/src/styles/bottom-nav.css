@@ -1,0 +1,93 @@
+@import './theme.css';
+
+/* Define the fade-in and slide-up animation */
+@keyframes navFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%); 
+  
+  width: 100%;
+  max-width: 500px; 
+  height: 64px;
+  
+  /* Transparent Senior Style */
+  background: rgba(0, 0, 0, 0.15); 
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  
+  z-index: 1000;
+
+  /* Apply the animation: 0.6s duration with a smooth cubic-bezier */
+  animation: navFadeIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.bottom-nav__inner {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.bottom-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6); 
+  text-decoration: none;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+/* Enhanced visibility for active state on transparent bg */
+.bottom-nav__item.is-active { 
+  color: #ffffff; 
+  font-weight: 600;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
+}
+
+.bottom-nav__label { 
+  font-size: 11px; 
+  letter-spacing: 0.3px;
+  /* Protect readability over dynamic video content */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); 
+}
+
+@supports(padding: max(0px)) {
+  .bottom-nav { 
+    height: calc(64px + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom); 
+  }
+}
+
+@media (max-width: 500px) {
+  .bottom-nav {
+    border-left: none;
+    border-right: none;
+    max-width: 100%;
+    /* Slight adjustment for mobile animation transform anchor */
+    @keyframes navFadeInMobile {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    animation-name: navFadeInMobile;
+    transform: none;
+    left: 0;
+  }
+}

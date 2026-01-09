@@ -1,0 +1,145 @@
+/* Instagram-like comments modal styling */
+.comments-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 6px 6px;
+}
+
+.comments-scroll {
+  max-height: 360px;
+  overflow: auto;
+  padding-right: 6px;
+}
+
+.comment-row {
+  display: flex;
+  gap: 12px;
+  padding: 10px 8px;
+  align-items: flex-start;
+}
+
+.comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.comment-main {
+  flex: 1 1 auto;
+}
+
+.comment-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment-user {
+  font-weight: 700;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.comment-actions .link {
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.comment-actions .link.danger {
+  color: #ef4444;
+}
+
+.comment-text {
+  margin-top: 6px;
+  color: #0f172a;
+  line-height: 1.35;
+}
+
+.comment-time {
+  margin-top: 6px;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.comment-edit-box {
+  margin-top: 8px;
+}
+
+.comment-edit-box input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #e6e7eb;
+}
+
+.comment-edit-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+.comment-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 12px; /* gives breathing room at bottom */
+  border-top: 1px solid #f1f5f9;
+}
+
+.comment-input-row .avatar-sm {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.comment-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 8px 10px;
+  background: #fafafa;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.comment-post-btn {
+  background: transparent;
+  border: none;
+  color: #3b82f6;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* small adjustments for modal spacing */
+.modal-card {
+  padding: 14px 16px 8px;
+}
+
+@media (min-width: 768px) {
+  .modal-card {
+    max-width: 520px;
+  }
+}

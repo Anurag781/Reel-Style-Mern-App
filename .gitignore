@@ -1,0 +1,43 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+yarn-error.log
+
+# Build / output
+dist/
+build/
+out/
+.vite/
+
+# Environment (ignore all .env files but keep .env.example)
+.env*
+!.env.example
+
+# Logs / coverage
+logs/
+*.log
+coverage/
+nyc_output/
+
+# OS / Editor / IDE
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Temporary files
+tmp/
+temp/
+*.pid
+*.seed
+
+# Archive / packages
+*.tgz
+
+# Large media / user uploads
+/vdeos/
